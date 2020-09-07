@@ -1,6 +1,6 @@
 processes:
   - name: mumble
-    executable: /var/vcap/packages/mumble/bin/murmur.x86
+    executable: /var/vcap/packages/mumble/murmur.x86
     args:
       - "-fg"
       - "-ini"
