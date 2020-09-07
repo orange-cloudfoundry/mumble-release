@@ -4,9 +4,9 @@ name: mumble
 templates:
   bpm.yml: config/bpm.yml
   murmur.ini.erb: config/murmur.ini
-  ca.pem: config/ca.pem
-  cert.pem: config/cert.pem
-  key.pem: config/key.pem
+  ca.pem.erb: config/ca.pem
+  cert.pem.erb: config/cert.pem
+  key.pem.erb: config/key.pem
 
 packages:
   - mumble
