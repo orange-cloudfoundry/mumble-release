@@ -2,7 +2,8 @@
 name: mumble
 
 templates:
-  bpm.yml.erb: config/bpm.yml
+  bpm.yml: config/bpm.yml
+  pre-start-bpm.sh: config/pre-start-bpm.sh
   murmur.ini.erb: config/murmur.ini
   ca.pem.erb: config/ca.pem
   cert.pem.erb: config/cert.pem
