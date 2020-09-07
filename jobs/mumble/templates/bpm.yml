@@ -6,7 +6,5 @@ processes:
       - "-ini"
       - "/var/vcap/jobs/mumble/config/murmur.ini"
     persistent_disk: true
-    hooks:
-      pre_start: /var/vcap/jobs/mumble/config/pre-start-bpm.sh
     capabilities:
       - NET_BIND_SERVICE
