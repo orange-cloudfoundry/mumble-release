@@ -1,0 +1,65 @@
+---
+name: mumble
+
+instance_groups:
+  - name: mumble
+    azs: [ z1 ]
+    instances: 1
+    vm_type: default
+    stemcell: default
+    networks:
+      - name: default
+    jobs:
+      - name: bpm
+        release: bpm
+      - name: mumble
+        release: mumble
+        properties:
+          mumble:
+            port: 443
+            tls:
+              cert: ((mumble_ssl.certificate))
+              key: ((mumble_ssl.private_key))
+              ca: ((mumble_ssl.ca))
+            bonjour: false
+            serverpassword: ((mumble-server-password))
+            users: 100
+            allowhtml: true
+            welcometext: "<br />Welcome to this server running <b>Murmur</b> from bosh and bpm.<br />"
+
+variables:
+  - name: mumble-server-password
+    type: password
+  - name: mumble_ca
+    options:
+      common_name: mumble-tls-ca
+      is_ca: true
+    type: certificate
+  - name: mumble_ssl
+    options:
+      ca: mumble_ca
+      alternative_names:
+        - ((mumble_domain))
+      common_name: mumbleSSL
+    type: certificate
+
+update:
+  canaries: 1
+  max_in_flight: 32
+  canary_watch_time: 1000-100000
+  update_watch_time: 1000-100000
+  serial: false
+
+stemcells:
+  - alias: default
+    os: ubuntu-xenial
+    version: latest
+
+manifest_version: v1.0.0
+
+releases:
+  - name: mumble
+    version: 1.0.0
+    url: https://github.com/orange-cloudfoundry/mumble-release/releases/download/v1.0.0/mumble-1.0.0.tgz
+  - name: bpm
+    version: latest

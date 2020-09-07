@@ -1,0 +1,7 @@
+---
+name: mumble
+
+dependencies:
+
+files:
+  - mumble/murmur-static_x86.tar.bz2 # https://github.com/mumble-voip/mumble/releases/download

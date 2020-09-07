@@ -1,0 +1,46 @@
+---
+name: mumble
+
+templates:
+  bpm.yml: config/bpm.yml
+  murmur.ini.erb: config/murmur.ini
+  ca.pem: config/ca.pem
+  cert.pem: config/cert.pem
+  key.pem: config/key.pem
+
+packages:
+  - mumble
+
+properties:
+  mumble.port:
+    description: "Port for listening"
+    default: 443
+  mumble.tls.cert:
+    description: "content of an ssl cert in pem format"
+  mumble.tls.ca:
+    description: "content of an ssl cert signing previous cert in pem format"
+  mumble.tls.key:
+    description: "content of an ssl private key in pem format"
+
+  mumble.bonjour:
+    description: |
+      If this option is enabled, the server will announce its presence via the
+      bonjour service discovery protocol. To change the name announced by bonjour
+      adjust the registerName variable.
+      See http://developer.apple.com/networking/bonjour/index.html for more information
+      about bonjour.
+    default: false
+
+  mumble.serverpassword:
+    description: "password to join server"
+    default: ""
+  mumble.users:
+    description: "Maximum number of concurrent clients allowed."
+    default: 100
+
+  mumble.allowhtml:
+    description: "Allow clients to use HTML in messages, user comments and channel descriptions?"
+    default: false
+  mumble.welcometext:
+    description: "welcome text"
+    default: "<br />Welcome to this server running <b>Murmur</b>.<br />Enjoy your stay!<br />"

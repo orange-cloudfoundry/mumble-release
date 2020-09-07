@@ -1,0 +1,10 @@
+processes:
+  - name: mumble
+    executable: /var/vcap/packages/mumble/bin/murmur.x86
+    args:
+      - "-fg"
+      - "-ini"
+      - "/var/vcap/jobs/mumble/config/murmur.ini"
+    persistent_disk: true
+    capabilities:
+      - NET_BIND_SERVICE

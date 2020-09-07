@@ -1,0 +1,5 @@
+check process mumble
+  with pidfile   /var/vcap/sys/run/bpm/mumble/mumble.pid
+  start program "/var/vcap/jobs/bpm/bin/bpm start mumble"
+  stop program  "/var/vcap/jobs/bpm/bin/bpm stop  mumble"
+  group vcap
