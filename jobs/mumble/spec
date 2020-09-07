@@ -3,7 +3,7 @@ name: mumble
 
 templates:
   bpm.yml: config/bpm.yml
-  pre-start.erb: bin/pre-start
+  post-start.erb: bin/post-start
   murmur.ini.erb: config/murmur.ini
   ca.pem.erb: config/ca.pem
   cert.pem.erb: config/cert.pem
