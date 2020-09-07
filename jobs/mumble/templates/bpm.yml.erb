@@ -3,6 +3,8 @@ processes:
     executable: /var/vcap/packages/mumble/murmur.x86
     args:
       - "-fg"
+      - "-supw"
+      - "<%= p("mumble.superuser.password") %>"
       - "-ini"
       - "/var/vcap/jobs/mumble/config/murmur.ini"
     persistent_disk: true

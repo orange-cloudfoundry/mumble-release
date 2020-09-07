@@ -24,12 +24,16 @@ instance_groups:
               ca: ((mumble_ssl.ca))
             bonjour: false
             serverpassword: ((mumble-server-password))
+            superuser:
+              password: ((mumble-superuser-password))
             users: 100
             allowhtml: true
             welcometext: "<br />Welcome to this server running <b>Murmur</b> from bosh and bpm.<br />"
 
 variables:
   - name: mumble-server-password
+    type: password
+  - name: mumble-superuser-password
     type: password
   - name: mumble_ca
     options:

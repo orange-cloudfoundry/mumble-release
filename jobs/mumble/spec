@@ -2,7 +2,7 @@
 name: mumble
 
 templates:
-  bpm.yml: config/bpm.yml
+  bpm.yml.erb: config/bpm.yml
   murmur.ini.erb: config/murmur.ini
   ca.pem.erb: config/ca.pem
   cert.pem.erb: config/cert.pem
@@ -34,6 +34,9 @@ properties:
   mumble.serverpassword:
     description: "password to join server"
     default: ""
+  mumble.superuser.password:
+    description: "password for superuser"
+    default: "supersecretpassword"
   mumble.users:
     description: "Maximum number of concurrent clients allowed."
     default: 100
